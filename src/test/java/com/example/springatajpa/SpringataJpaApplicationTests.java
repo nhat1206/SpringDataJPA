@@ -20,18 +20,13 @@ class SpringataJpaApplicationTests {
     }
 
     @Test
-    void findEmployeeByJob(){
-        List<Employee> employees = emploeeRepository.findEmployeeByJob();
+    void findEmployeeByJobs(){
+        List<Employee> employees = emploeeRepository.findEmployeeByJobs();
         System.out.println(employees);
     }
 
     @Test
-    void deleteEmployeeById(){
-        emploeeRepository.deleteEmployeeById(2);
-    }
-
-    @Test
-    void updateEmployee(){
-        emploeeRepository.updateEmployee("Teacher",5);
+    void deleteEmployeeByFirstName(){
+        emploeeRepository.deleteEmployeeByFirstName();
     }
 }

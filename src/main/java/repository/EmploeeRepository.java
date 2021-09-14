@@ -12,17 +12,12 @@ import java.util.List;
 @Repository
 public interface EmploeeRepository extends JpaRepository<Employee, Integer> {
 
-    @Query(value = "select * from Employee where Job = 'Teacher'",nativeQuery = true)
-    List<Employee> findEmployeeByJob();
+    @Query(value = "select e from Employee e where e.Job = 'Doctor'",nativeQuery = true)
+    List<Employee> findEmployeeByJobs();
 
     @Transactional
     @Modifying
-    @Query(value = "delete from Employee where id = :id",nativeQuery = true)
-    void deleteEmployeeById(int id);
-
-    @Transactional
-    @Modifying
-    @Query(value = "update Employee  set Job= ?1 where id = ?2",nativeQuery = true)
-    void updateEmployee(String job,int id);
+    @Query(value = "delete from Employee where firstName = 'John'",nativeQuery = true)
+    void deleteEmployeeByFirstName();
 
 }
