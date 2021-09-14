@@ -20,32 +20,18 @@ class SpringataJpaApplicationTests {
     }
 
     @Test
-    void findAll(){
-        List<Employee> employees = emploeeRepository.findAll();
-        employees.forEach(System.out::println);
+    void findEmployeeByJob(){
+        List<Employee> employees = emploeeRepository.findEmployeeByJob();
+        System.out.println(employees);
     }
 
     @Test
-    void createEmployee(){
-        Employee employee = new Employee();
-        employee.setFirstName("Han");
-        employee.setLastName("Solo");
-        employee.setJob("Teacher");
-        emploeeRepository.save(employee);
+    void deleteEmployeeById(){
+        emploeeRepository.deleteEmployeeById(2);
     }
 
     @Test
     void updateEmployee(){
-        Employee employee = new Employee();
-        employee.setId(3);
-        employee.setFirstName("Harry");
-        employee.setLastName("Style");
-        employee.setJob("Celebrity");
-        emploeeRepository.save(employee);
-    }
-
-    @Test
-    void deleteEmployee(){
-        emploeeRepository.deleteById(2);
+        emploeeRepository.updateEmployee("Teacher",5);
     }
 }
